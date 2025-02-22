@@ -3,7 +3,7 @@ require_relative "wheel"
 class Gear
   attr_reader :chainring, :cog, :wheel
 
-  def initialize(chainring, cog, wheel=nil)
+  def initialize(chainring, cog, wheel)
     @chainring = chainring
     @cog = cog
     @wheel = wheel
@@ -18,9 +18,4 @@ class Gear
   end
 end
 
-@wheel = Wheel.new(26, 1.5)
-puts @wheel.circumference
-
-puts Gear.new(52, 11, @wheel).gear_inches
-
-puts Gear.new(52, 11).ratio
+puts Gear.new(52, 11, Wheel.new(26, 1.5)).gear_inches
